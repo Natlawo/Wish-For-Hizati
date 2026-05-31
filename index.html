@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Hari Lahir Hizati</title>
+    <style>
+        /* CSS RESET & MODERN STYLE */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #08080c;
+            color: #e4e4e9;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* CONTAINER PHONE */
+        .phone-container {
+            max-width: 450px;
+            margin: 0 auto;
+            background-color: #0f0f16;
+            min-height: 100vh;
+            box-shadow: 0 0 40px rgba(0,0,0,0.8);
+            position: relative;
+            padding-bottom: 80px;
+        }
+
+        /* AUDIO CONTROL BUTTON */
+        .audio-control {
+            position: fixed;
+            top: 15px;
+            right: calc(50% - 210px);
+            z-index: 9999;
+            background: rgba(26, 21, 40, 0.8);
+            border: 1px solid #b5179e;
+            box-shadow: 0 0 15px rgba(181, 23, 158, 0.4);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        @media (max-width: 450px) {
+            .audio-control { right: 15px; }
+        }
+        .audio-control svg {
+            width: 22px;
+            height: 22px;
+            fill: #b5179e;
+        }
+
+        /* PAGE 1: DIGITAL BLUEPRINT GATES */
+        #opening-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 30px;
+            background: radial-gradient(circle at center, #151026 0%, #08080c 100%);
+        }
+        #opening-page h1 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            letter-spacing: -0.5px;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+        #opening-page .intro-text {
+            font-size: 1.1rem;
+            color: #8e8e9f;
+            margin-bottom: 50px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* DIGITAL FINGERPRINT SCANNER INFRASTRUCTURE */
+        .scanner-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .scanner-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px dashed #9d4edd;
+            box-shadow: 0 0 15px rgba(157, 78, 221, 0.4);
+            animation: rotateRing 8s linear infinite;
+        }
+        .fingerprint-btn {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            background: #1a1528;
+            border: 2px solid #b5179e;
+            box-shadow: 0 0 25px rgba(181, 23, 158, 0.6), inset 0 0 15px rgba(181, 23, 158, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            animation: pulseGlow 1.8s infinite alternate;
+        }
+        .fingerprint-btn svg {
+            width: 45px;
+            height: 45px;
+            fill: #7209b7;
+            transition: fill 0.3s ease;
+        }
+        .scanner-container:hover .fingerprint-btn {
+            box-shadow: 0 0 35px #f72585, inset 0 0 20px rgba(247, 37, 133, 0.6);
+            border-color: #f72585;
+        }
+        .scanner-container:hover svg { fill: #f72585; }
+
+        @keyframes rotateRing { 100% { transform: rotate(360deg); } }
+        @keyframes pulseGlow {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(181, 23, 158, 0.5); }
+            100% { transform: scale(1.05); box-shadow: 0 0 35px rgba(247, 37, 133, 0.8); }
+        }
+
+        /* PAGE 2: MAIN CONTENT NOVEL TIMELINE */
+        #main-content {
+            display: none;
+            padding: 25px 18px;
+            animation: fadeInPage 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @keyframes fadeInPage {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* BINGKAI EMAS PUTIH (STYLISH 90AN RETRO ELEGANT) */
+        .track-box {
+            margin-bottom: 50px;
+            background-color: #14141f;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            border: 1px solid #222235;
+        }
+        .image-frame {
+            padding: 14px;
+            background: linear-gradient(135deg, #f3f3f9 0%, #ffffff 50%, #cfd8dc 100%);
+            border: 5px double #b0bec5;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.3);
+            margin: 15px;
+            border-radius: 4px;
+        }
+        .image-frame img {
+            width: 100%;
+            display: block;
+            border: 2px solid #0f0f16;
+            border-radius: 2px;
+        }
+
+        /* TEXT NOVEL RASA (ESTETIK GEORGIA) */
+        .text-content {
+            padding: 5px 22px 25px 22px;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 1.08rem;
+            color: #e2e2ec;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        /* SLIDER (SLIDE TO RIGHT) */
+        .slide-section {
+            margin-top: 70px;
+            text-align: center;
+            padding: 25px 10px;
+            border-top: 1px dashed #32324d;
+        }
+        .slide-section h3 {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            color: #b5179e;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .slide-container {
+            width: 85%;
+            height: 60px;
+            background-color: #1a1a26;
+            border-radius: 35px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #2d2d44;
+            box-shadow: inset 0 4px 10px rgba(0,0,0,0.4);
+        }
+        .slide-text {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.95rem;
+            color: #787891;
+            pointer-events: none;
+            padding-left: 50px;
+        }
+        .slide-handle {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, #b5179e, #7209b7);
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+        }
+
+        /* SEPUCUK SURAT VINTAJ */
+        #vintage-letter {
+            display: none;
+            background-color: #f6edd2;
+            color: #2f2214;
+            padding: 40px 28px;
+            margin: 35px 5px 20px 5px;
+            border-radius: 4px;
+            box-shadow: inset 0 0 50px rgba(145,100,65,0.35), 0 20px 40px rgba(0,0,0,0.7);
+            font-family: 'Georgia', 'Times New Roman', serif;
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1.12rem;
+            border-left: 6px solid #cfc29d;
+            animation: fadeInPage 1.2s ease-in-out;
+        }
+        #vintage-letter p {
+            margin-bottom: 20px;
+            text-indent: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="backsound.MP4" type="audio/mp4">
+    </audio>
+
+    <div class="audio-control" id="audioBtn" onclick="toggleAudio()" style="display:none;">
+        <svg id="icon-on" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+        <svg id="icon-off" viewBox="0 0 24 24" style="display:none;"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+    </div>
+
+    <div class="phone-container">
+
+        <div id="opening-page">
+            <h1><b>Selamat Hari Jadi Buat Kakakku, Hizati Yang Ke-24.</b></h1>
+            <div class="intro-text">
+                Spend little bit time for this moment
+            </div>
+            
+            <div class="scanner-container" onclick="bukaTrack()">
+                <div class="scanner-ring"></div>
+                <div class="fingerprint-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12,2A10,10,0,0,0,2,12a1,1,0,0,0,2,0,8,8,0,0,1,16,0,1,1,0,0,0,2,0A10,10,0,0,0,12,2Zm0,4a6,6,0,0,0-6,6,1,1,0,0,0,2,0,4,4,0,0,1,8,0,1,1,0,0,0,2,0A6,6,0,0,0,12,6Zm0,4a2,2,0,0,0-2,2,1,1,0,0,0,2,0,0,0,0,0,1,0,0,1,1,0,0,0,2,0A2,2,0,0,0,12,10Zm0,6a4,4,0,0,0,4-4,1,1,0,0,0-2,0,2,2,0,0,1-4,0,1,1,0,0,0-2,0A4,4,0,0,0,12,16Z"/>
+                    </svg>
+                </div>
+            </div>
+            <p style="color: #62627a; font-size: 0.85rem; margin-top: 15px; letter-spacing: 1px; text-transform: uppercase;">Sentuh pengimbas untuk imbas memori</p>
+        </div>
+
+
+        <div id="main-content">
+
+            <div class="track-box">
+                <div class="image-frame">
+                    <img src="1.jpg" alt="Momen 1">
+                </div>
+                <div class="text-content">
+                    Selamat hari lahir sekali lagi bang, adik buat benda ni seharian sebelum hari bahagianya abah dengan mak lahirkan hang. Adik cuba gunakan ilmu yang adik pelajari selamani untuk buat all this just for u. Pertama sekali, sa minta maaf ya bang sebab xdapat bagi hadiah fizikal atau cuba hantar hadiah ke sana sebab kos yang cukup tinggi dengan era sekarang, jadi ini motif paling besar adik usaha buat sehabis mungkin untuk bagi hang hadiah walaupun xsemahal sabarmu sebagai isteri anjayy. Adik pun xtau nak cakap ape tapi tulah nak nampak estetek sikit kena banyak berleter dalam ni😂. Hang mesti terfikir ape kaitan gambar atas tu dengan ayat punya panjang kat sini, sa cuba rindu bang, rindu nak gelak sama-sama dan keluar walau kadang last minit tapi momen macamtulah yang mahal.
+                </div>
+            </div>
+
+            <div class="track-box">
+                <div class="image-frame">
+                    <img src="4.jpg" alt="Momen 2">
+                </div>
+                <div class="text-content">
+                    Haaa ni waktu dekat bilik pagi buta buat ape entah xtido lagi pastu amik gambar random dekat fon sape entah xingat. Asal pagi buta je baru nak bising-bising ngekek lepastu pagi esok abah nganjing ape kekek-kekek memalam anjayyy😂. Teringat doh waktu garu kaki mak tu mak tido pastu adik lari gi bilik hang nak tengok kak main psp game ninja tu pastu mak marah sebab xpergi kedai, pasal kaki tu lupa dah maknya.
+                </div>
+            </div>
+
+            <div class="track-box">
+                <div class="image-frame">
+                    <img src="2.jpg" alt="Momen 3">
+                </div>
+                <div class="text-content">
+                    Waktu ni pulak baru lepas gosip ngan ct tapi lupa dah pasal ape tapi macam ada unsur isam xsilap anjay. Time ni hang minat youtuber kambing golek tu sebab tu hang pakai topi tu nak ikut style dia, anjay sa ingat bang.
+                </div>
+            </div>
+
+            <div class="track-box">
+                <div class="image-frame">
+                    <img src="3.jpg" alt="Momen 4">
+                </div>
+                <div class="text-content">
+                    Yang ni pulak lupalah kita dari mana antara balik pergi vaksin kat belakang sunway tu atau balik jumpa kawan hang khalidah tapi adik rasa yang vaksin tu kotlah kot entah ke yang time birthday abah makan kat soru tu.
+                </div>
+            </div>
+
+            <div class="track-box">
+                <div class="image-frame">
+                    <img src="6.jpg" alt="Momen 5">
+                </div>
+                <div class="text-content">
+                    Gambar ni adik pernah guna edit kat capcut yang tikus terkejut tengok muka hang😂. Ingat nak letak ni dekat front page AHHAHAHAHAAHAHHAAH tapi tulah nanti xestetik pulak letak yang lawak depan sekali.
+                </div>
+            </div>
+
+            <div class="track-box">
+                <div class="image-frame">
+                    <img src="5.jpg" alt="Momen 6">
+                </div>
+                <div class="text-content">
+                    Yang ni mesti hang ingat punya, waktu ni hang baru belajar berdikari nak duduk jauh tapi adik lupa ni bangi ke intern kat ganu entah tapi memang waktu ni abah macam sayu-sayu anjayyy.
+                </div>
+            </div>
+
+            <div class="track-box">
+                <div class="image-frame">
+                    <img src="7.jpg" alt="Momen 7">
+                </div>
+                <div class="text-content">
+                    Lepas sekian lama duduk ganu, sangkutlah jodoh hang disini anjayyy, waktu ni best doh lepak pantai reramai tapi tulah gambar waktu kat pantai tu adik malas pulak nak gi cari jadi sa ambil gambar ni sebab nak fokus kat carta hidup hang sewaktu dengan nya.
+                </div>
+            </div>
+
+            <div class="track-box">
+                <div class="image-frame">
+                    <img src="8.jpg" alt="Momen 8">
+                </div>
+                <div class="text-content">
+                    Ni dapat dari laptop lama hang tapi xsilap xdapat hidup lama dah sejak pindah rumah baru ni, ni pun ambil dari sejarah chat lama kita kat atas-atas. Gambar hang ngan akak kat uptown shah alam tu ada jugak malas pulak nak amik jugak🤣.
+                </div>
+            </div>
+
+            <div class="track-box">
+                <div class="image-frame">
+                    <img src="9.heic" alt="Momen 9">
+                </div>
+                <div class="text-content">
+                    Gambar ni adik ingat nak letak atas sekali/opening tapi nampak macam suit dekat bottom jadi sa taruk sini aja. Moment yang xboleh dilupakan juga ya bang waktu ni walaupun kurang masa untuk seimbang dengan keluarga sendiri, dengan hamdan lagi, hang nak rush hantar baju tu lagi. Sa dah cover orang belakang dari masuk frame sebab xlayak😂🙏🏻. Sa jadikan salah 1 gambar ni sebagai inspirasi buat adik terus usaha belajar sehingga kini. Btw emy dah tahu juga adik sambung belajar, emy ada bagi kata-kata semangat juga untuk teruskan perjuangan jangan setengah jalan. Adik nak jadi orang ketiga dalam beradik yang sambung belajar dari keseluruhan bang. Doakan sa juga ada rezeki nak sambung lebih lagi dimasa hadapan.
+                </div>
+            </div>
+
+            <div class="slide-section">
+                <h3>Misi Akhir: Buka Sepucuk Surat</h3>
+                <div class="slide-container" id="sliderBox">
+                    <div class="slide-text">👉 Seret ke kanan untuk baca surat</div>
+                    <div class="slide-handle" id="sliderHandle">📄</div>
+                </div>
+            </div>
+
+            <div id="vintage-letter">
+                <p>Apapun bang sa bangga hang dah sehabis baik untuk jadi manusia yang bertamun sehingga kini. Banyak lika liku hang lalui yang adik tahu tapi keluarga xtahu. Dari zaman bergayut dengan A, keluar dengan L, dengan H dan kena kacau dengan sapetah nama dia lupa😂.</p>
+                <p>Sa tau bang, dilubuk hati hang mesti masih xpercaya yang hang dah berjalan jauh sampai ke titik yang mungkin hang pernah doa 10 tahun yang lalu untuk hidup dikehidupan sekarang. Kun Faya Kun, terima kasih juga bang dulu ajar adik apa-apa yang adik kurang faham, dari segi pelajaran sampailah berdikari dalam dunia sebenar. Ada lepak tu hari dengan ct, adeje ct kenang balik kisah kita dulu-dulu bang, nampaknya ct pun xlupa momen manis kita semua.</p>
+                <p>Tunggu sa ya bang, financial dah stabil, adik bawa hang jalan-jalan naik kereta sampai kita lupa dulu nak kemana-mana kena naik bus, lrt, grab or menumpang kawan. Moga impian hang tahun ni dan ditahun depan didengari tuhan ya. Btw doakan sa juga dapat bawa adik ipar untuk family yang kaya hehehehehe😂.</p>
+                <p>Udahlah bang, sakit otak juga nak memikir ayat dah macam jawab spm je cipap, terima kasih sekali lagi bang luangkan masa untuk habiskan semua segment biasa ini.</p>
+                <p style="text-align: right; font-weight: bold; margin-top: 30px; font-style: italic;">Lebiu muah tek😛🤍.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const audio = document.getElementById('bgMusic');
+        const audioBtn = document.getElementById('audioBtn');
+        const iconOn = document.getElementById('icon-on');
+        const iconOff = document.getElementById('icon-off');
+
+        function bukaTrack() {
+            document.getElementById('opening-page').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+            audioBtn.style.display = 'flex';
+            
+            audio.play().catch(error => {
+                console.log("Autoplay blocked");
+            });
+            window.scrollTo(0, 0);
+        }
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                iconOn.style.display = 'block';
+                iconOff.style.display = 'none';
+            } else {
+                audio.pause();
+                iconOn.style.display = 'none';
+                iconOff.style.display = 'block';
+            }
+        }
+
+        // JS LOGIK UNTUK SLIDER
+        const handle = document.getElementById('sliderHandle');
+        const container = document.getElementById('sliderBox');
+        const letter = document.getElementById('vintage-letter');
+        let isDragging = false;
+        let startX = 0;
+
+        handle.addEventListener('mousedown', startSlide);
+        handle.addEventListener('touchstart', startSlide);
+
+        function startSlide(e) {
+            isDragging = true;
+            startX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+            document.addEventListener('mousemove', moveSlide);
+            document.addEventListener('touchmove', moveSlide);
+            document.addEventListener('mouseup', endSlide);
+            document.addEventListener('touchend', endSlide);
+        }
+
+        function moveSlide(e) {
+            if (!isDragging) return;
+            const currentX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+            let diffX = currentX - startX;
+            let maxSlide = container.clientWidth - handle.clientWidth - 6;
+            
+            if (diffX > 0 && diffX <= maxSlide) {
+                handle.style.left = (diffX + 3) + 'px';
+            }
+            
+            if (diffX >= maxSlide - 5) {
+                triggerLetter();
+            }
+        }
+
+        function endSlide() {
+            if (!isDragging) return;
+            isDragging = false;
+            handle.style.left = '3px';
+        }
+
+        function triggerLetter() {
+            isDragging = false;
+            container.style.display = 'none';
+            letter.style.display = 'block';
+            setTimeout(() => {
+                letter.scrollIntoView({ behavior: 'smooth' });
+            }, 300);
+        }
+    </script>
+</body>
+</html>
